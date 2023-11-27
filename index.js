@@ -108,11 +108,22 @@ for (var i = 0; i < (finances.length)-1; i++){
   var current = finances[i][1]
   var next = finances[i+1][1]
   diff = next - current
-  diffArray.push(diff)
+  diffArray.push([finances[i+1][0], diff])
 }
 for (var i = 0; i < diffArray.length; i++){
-  total = total + diffArray[i]
+  total = total + diffArray[i][1]
 }
 var avgDiff = (total/diffArray.length).toFixed(2)
 console.log("Average Change: " + avgDiff);
 
+//Greatest P/L Increase
+var largest= [diffArray[0]];
+for (var i = 0; i <diffArray.length; i++) {
+  if (diffArray[i][1]>largest[0][1]){
+    largest=[diffArray[i]]
+  }
+}
+var string = largest.toString()
+var stringSplit = string.split(",")
+
+console.log("Greatest Increase in Profits/Losses: "+ stringSplit[0] + " ($" + stringSplit[1]+ ")")
