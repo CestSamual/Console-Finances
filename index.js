@@ -115,7 +115,6 @@ for (var i = 0; i < diffArray.length; i++){
 }
 var avgDiff = (total/diffArray.length).toFixed(2)
 console.log("Average Change: " + avgDiff);
-
 //Greatest P/L Increase
 var largest= [diffArray[0]];
 for (var i = 0; i <diffArray.length; i++) {
@@ -127,3 +126,14 @@ var string = largest.toString()
 var stringSplit = string.split(",")
 
 console.log("Greatest Increase in Profits/Losses: "+ stringSplit[0] + " ($" + stringSplit[1]+ ")")
+//Greatest P/L Decrease
+var smallest= [diffArray[0]];
+for (var i = 0; i <diffArray.length; i++) {
+  if (diffArray[i][1]<smallest[0][1]){
+    smallest=[diffArray[i]]
+  }
+}
+var string = smallest.toString()
+var stringSplit = string.split(",")
+
+console.log("Greatest Decrease in Profits/Losses: "+ stringSplit[0] + " ($" + stringSplit[1]+ ")")
