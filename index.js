@@ -92,6 +92,13 @@ console.log("Financial Analysis");
 console.log("----------------");
 //Total Months
 console.log("Total Months: "+finances.length);
+//Total net
+var sum = 0
+
+for (var i = 0; i < finances.length; i++){
+  sum +=finances[i][1]
+}
+console.log("Total: $"+ sum)
 
 
 
