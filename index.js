@@ -92,13 +92,27 @@ console.log("Financial Analysis");
 console.log("----------------");
 //Total Months
 console.log("Total Months: "+finances.length);
-//Total net
+//Total Net
 var sum = 0
 
 for (var i = 0; i < finances.length; i++){
   sum +=finances[i][1]
 }
 console.log("Total: $"+ sum)
+//Average Change
+var diffArray=[];
+var diff = 0
+var total = 0
 
-
+for (var i = 0; i < (finances.length)-1; i++){
+  var current = finances[i][1]
+  var next = finances[i+1][1]
+  diff = next - current
+  diffArray.push(diff)
+}
+for (var i = 0; i < diffArray.length; i++){
+  total = total + diffArray[i]
+}
+var avgDiff = (total/diffArray.length).toFixed(2)
+console.log("Average Change: " + avgDiff);
 
